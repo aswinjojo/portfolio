@@ -1,903 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aswin Jojo | Software Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("aIrD-kWRY0_RnX3wm"); // Replace with your EmailJS user ID
-        })();
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-        }
-        
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
-            background-color: #e0e0e0;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #6e8efb, #a777e3);
-            transition: width 1s ease-in-out;
-        }
-        
-        .timeline-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            left: 11px;
-            top: 24px;
-            height: calc(100% - 24px);
-            width: 2px;
-            background-color: #a777e3;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #6e8efb;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .active::after {
-            width: 100%;
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: .15em solid #6e8efb;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
-            animation: 
-                typing 3.5s steps(40, end),
-                blink-caret .75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #6e8efb; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Aswin Jojo | Software Developer</title>
+
+  <!-- Tailwind & Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+    .gradient-bg { background: linear-gradient(135deg, #6e8efb, #a777e3); }
+    .skill-bar { height: 8px; border-radius: 4px; background-color: #e0e0e0; }
+    .skill-progress { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #6e8efb, #a777e3); transition: width 1s ease-in-out; }
+    .timeline-item:not(:last-child)::after { content: ''; position: absolute; left: 11px; top: 24px; height: calc(100% - 24px); width: 2px; background-color: #a777e3; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: #6e8efb; transition: width 0.3s ease; }
+    .nav-link:hover::after, .active::after { width: 100%; }
+    .typewriter { overflow: hidden; border-right: .15em solid #6e8efb; white-space: nowrap; margin: 0 auto; letter-spacing: .15em;
+      animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #6e8efb; } }
+  </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
-    <!-- Header/Navigation -->
-    <header class="fixed w-full bg-white shadow-sm z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-indigo-600">Aswin Jojo</div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </nav>
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <i class="fas fa-bars text-2xl text-indigo-600"></i>
-                </button>
-            </div>
-            <!-- Mobile Menu -->
-            <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <div class="flex flex-col space-y-3">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-            </div>
+  <!-- Header/Navigation -->
+  <header class="fixed w-full bg-white shadow-sm z-50">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="text-2xl font-bold text-indigo-600">Aswin Jojo</div>
+        <nav class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <button class="md:hidden focus:outline-none" id="menu-toggle">
+          <i class="fas fa-bars text-2xl text-indigo-600"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden mt-4" id="mobile-menu">
+        <div class="flex flex-col space-y-3">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 px-6 gradient-bg text-white">
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Aswin Jojo</span></h1>
-                <!-- <h2 class="text-2xl md:text-3xl font-semibold mb-6 typewriter">Full Stack Software Developer</h2> -->
-                <h2 class="hidden lg:block text-2xl md:text-3xl font-semibold mb-6 typewriter">
-                    Software Engineer
-                </h2>
-                <!-- Only visible on mobile screens -->
-                <h2 class="block lg:hidden text-xl font-medium mb-4 typewriter">
-                    Software Engineer
-                </h2>
-                  
-                <p class="text-lg mb-8">Passionate about building scalable web applications and solving complex problems with clean, efficient code.</p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="px-6 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">Hire Me</a>
-                    <a href="#projects" class="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">View Work</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                    <!-- <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Aswin Jojo" class="w-full h-full object-cover"> -->
-                    <img src="img/aswin.png" alt="Aswin Jojo" class="w-full h-full object-cover object-top">
-                </div>
-            </div>
+  <!-- Hero -->
+  <section id="home" class="pt-32 pb-20 px-6 gradient-bg text-white">
+    <div class="container mx-auto flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Aswin Jojo</span></h1>
+        <h2 class="hidden lg:block text-2xl md:text-3xl font-semibold mb-6 typewriter">Software Engineer</h2>
+        <h2 class="block lg:hidden text-xl font-medium mb-4 typewriter">Software Engineer</h2>
+        <p class="text-lg mb-8">I build scalable web applications and cloud-native systems with clean, reliable code.</p>
+        <div class="flex space-x-4">
+          <a href="#contact" class="px-6 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-gray-100 transition">Hire Me</a>
+          <a href="#projects" class="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition">View Work</a>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">About Me</h2>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Aswin" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <h3 class="text-2xl font-semibold mb-4">Who am I?</h3>
-                    <p class="text-gray-600 mb-6">I'm a passionate software developer with expertise in full-stack web development, cloud computing, and database management. Currently pursuing my Master's in Computer Science at the University of Houston, I bring hands-on experience from my tenure at Policybazaar.com where I worked on large-scale systems serving millions of users.</p>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-xl font-semibold mb-4">Education</h4>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                    <i class="fas fa-graduation-cap text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <h5 class="font-semibold">Master of Science in Computer Science</h5>
-                                    <p class="text-gray-600">University of Houston, Texas (2024-2026)</p>
-                                    <p class="text-gray-500">GPA: 3.67/4</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                    <i class="fas fa-university text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <h5 class="font-semibold">Bachelor of Technology in Computer Science and Engineering</h5>
-                                    <p class="text-gray-600">Vellore Institute Of Technology, Chennai (2019-2023)</p>
-                                    <p class="text-gray-500">CGPA: 9/10</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-xl font-semibold mb-4">Contact Info</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="flex items-center">
-                                <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                    <i class="fas fa-phone text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-600">+1 (832) 427-8618</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                    <i class="fas fa-envelope text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-600">aswintharakkunnel@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                    <i class="fab fa-github text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-600">github.com/aswinjojo</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                    <i class="fab fa-linkedin text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-600">linkedin.com/in/aswinjojo</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+          <img src="img/aswin.png" alt="Aswin Jojo" class="w-full h-full object-cover object-top" />
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section class="py-20 px-6 bg-gray-50">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Technical Skills</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Languages -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <i class="fas fa-code mr-2 text-indigo-600"></i> Languages
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">JavaScript</span>
-                                <span class="text-gray-600">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Java</span>
-                                <span class="text-gray-600">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Python</span>
-                                <span class="text-gray-600">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Web Dev Tools -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <i class="fas fa-laptop-code mr-2 text-indigo-600"></i> Web Development
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">React/Next.js</span>
-                                <span class="text-gray-600">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Node.js/Express</span>
-                                <span class="text-gray-600">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Git/GitHub</span>
-                                <span class="text-gray-600">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cloud/Databases -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <i class="fas fa-database mr-2 text-indigo-600"></i> Databases
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">MongoDB</span>
-                                <span class="text-gray-600">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">MySQL/MSSQL</span>
-                                <span class="text-gray-600">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">DynamoDB</span>
-                                <span class="text-gray-600">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cloud Services -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <i class="fas fa-cloud mr-2 text-indigo-600"></i> Cloud Services
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">AWS</span>
-                                <span class="text-gray-600">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Azure</span>
-                                <span class="text-gray-600">75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Firebase</span>
-                                <span class="text-gray-600">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- About -->
+  <section id="about" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">About Me</h2>
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+          <div class="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=1470&q=80" alt="About Aswin" class="w-full h-full object-cover"/>
+          </div>
         </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Work Experience</h2>
-            
-            <div class="relative">
-                <!-- Policybazaar - Technical Associate -->
-                <div class="timeline-item mb-12 pl-8 relative">
-                    <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-indigo-600 border-4 border-white shadow-md"></div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h3 class="text-xl font-semibold">Technical Associate</h3>
-                            <span class="text-indigo-600 font-medium">Jul 2023 - Jul 2024</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                <i class="fas fa-building text-indigo-600"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium">Policybazaar.com</p>
-                                <p class="text-gray-600">Gurugram, India</p>
-                            </div>
-                        </div>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Developed and maintained a comprehensive insurance management website using Next.js and Node.js, utilizing MSSQL, MySQL, and MongoDB for database management and stored procedures for efficient data handling.</li>
-                            <li>Managed and scaled systems for over 70 million users.</li>
-                            <li>Collaborated in Agile sprints, contributing to daily scrums and sprint planning.</li>
-                            <li>Integrated real-time Google Analytics to track user behavior, boosting performance by 30%.</li>
-                        </ul>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Next.js</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MSSQL</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MySQL</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MongoDB</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Agile</span>
-                        </div>
-                    </div>
+        <div class="md:w-2/3 md:pl-12">
+          <h3 class="text-2xl font-semibold mb-4">Who am I?</h3>
+          <p class="text-gray-600 mb-6">
+            I’m a software engineer focused on full-stack development, cloud-native systems, and scalable data pipelines.
+            I’m pursuing my MSCS at the University of Houston and have built high-throughput platforms at Policybazaar,
+            automated ticket routing at Resolve Tech, and large-scale data pipelines as a research assistant.
+          </p>
+
+          <!-- Education -->
+          <div class="mb-8">
+            <h4 class="text-xl font-semibold mb-4">Education</h4>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="bg-indigo-100 p-2 rounded-full mr-4"><i class="fas fa-graduation-cap text-indigo-600"></i></div>
+                <div>
+                  <h5 class="font-semibold">Master of Science in Computer Science</h5>
+                  <p class="text-gray-600">University of Houston, Texas (2024–2026)</p>
+                  <p class="text-gray-500">GPA: 3.78/4</p>
                 </div>
-                
-                <!-- Policybazaar - Software Engineer Trainee -->
-                <div class="timeline-item mb-12 pl-8 relative">
-                    <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-indigo-600 border-4 border-white shadow-md"></div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h3 class="text-xl font-semibold">Software Engineer Trainee</h3>
-                            <span class="text-indigo-600 font-medium">Oct 2022 - Jun 2023</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <div class="bg-indigo-100 p-2 rounded-full mr-4">
-                                <i class="fas fa-building text-indigo-600"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium">Policybazaar.com</p>
-                                <p class="text-gray-600">Gurugram, India</p>
-                            </div>
-                        </div>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Developed a Lead Management Dashboard using React, Node.js, Express, and MySQL, with advanced search, filtering, and pagination capabilities for efficient lead management.</li>
-                            <li>Migrated 20+ legacy PHP APIs to Node.js, resulting in a 40% increase in performance and scalability.</li>
-                            <li>Integrated POSP APIs in Play Framework (Java) and introduced dynamic daily logging of API activities in MongoDB.</li>
-                            <li>Implemented Redis caching, reducing load times significantly.</li>
-                        </ul>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Express</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MySQL</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Java</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Redis</span>
-                        </div>
-                    </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-indigo-100 p-2 rounded-full mr-4"><i class="fas fa-university text-indigo-600"></i></div>
+                <div>
+                  <h5 class="font-semibold">Bachelor of Technology in Computer Science and Engineering</h5>
+                  <p class="text-gray-600">Vellore Institute of Technology, Chennai (2019–2023)</p>
+                  <p class="text-gray-500">GPA: 3.6/4</p>
                 </div>
+              </div>
             </div>
+          </div>
+
+          
+
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 bg-gray-50">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Featured Projects</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Ride Sharing App -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ride Sharing App" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Ride Sharing App</h3>
-                        <p class="text-gray-600 mb-4">A ride-sharing platform developed with AWS services, React, and Node.js.</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-4">
-                            <li>Implemented AWS Cognito for user authentication</li>
-                            <li>Utilized DynamoDB for scalable data storage</li>
-                            <li>Deployed on AWS with high availability</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">React</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Node.js</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">AWS</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">DynamoDB</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 font-medium hover:underline">View Details →</a>
-                    </div>
-                </div>
-                
-                <!-- Pbpartners Website -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pbpartners Website" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Pbpartners Website</h3>
-                        <p class="text-gray-600 mb-4">Website for agents (POSP) and management of leads for each partner.</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-4">
-                            <li>Improved UI/UX leading to 20% increase in policy renewals</li>
-                            <li>Developed contest management system with real-time leaderboard</li>
-                            <li>Implemented ticketing system for support</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">React</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Node.js</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">MySQL</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Redis</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 font-medium hover:underline">View Details →</a>
-                    </div>
-                </div>
-                
-                <!-- AI-powered WhatsApp ChatBot -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="AI ChatBot" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">AI WhatsApp ChatBot</h3>
-                        <p class="text-gray-600 mb-4">AI-driven WhatsApp chatBot using Node.js and OpenAI APIs.</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-4">
-                            <li>Integrated OpenAI's language models for context-aware responses</li>
-                            <li>Automated policy mapping with AI-driven insights</li>
-                            <li>Integrated WhatsApp on-premises APIs</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Node.js</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Express</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">OpenAI</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">WhatsApp API</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 font-medium hover:underline">View Details →</a>
-                    </div>
-                </div>
-                
-                <!-- School Website -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="School Website" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">School Website</h3>
-                        <p class="text-gray-600 mb-4">Comprehensive school website with React and Node.js.</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-4">
-                            <li>User-friendly responsive design with React</li>
-                            <li>Backend with Node.js and MongoDB</li>
-                            <li>Firebase for image storage</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">React</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Node.js</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">MongoDB</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Firebase</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 font-medium hover:underline">View Details →</a>
-                    </div>
-                </div>
-                
-                <!-- Intruder Detection System -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Intruder Detection" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Intruder Detection System</h3>
-                        <p class="text-gray-600 mb-4">IoT-based system with adaptive face monitoring and motion sensing.</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-4">
-                            <li>Motion sensing with PIR sensors</li>
-                            <li>Face monitoring with Haar algorithm</li>
-                            <li>Automated email alerts for intruders</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">IoT</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Raspberry Pi</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Python</span>
-                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">OpenCV</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 font-medium hover:underline">View Details →</a>
-                    </div>
-                </div>
-                
-                <!-- More Projects Button -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md flex items-center justify-center p-6">
-                    <div class="text-center">
-                        <i class="fas fa-plus-circle text-4xl text-indigo-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">View More Projects</h3>
-                        <a href="#" class="text-indigo-600 font-medium hover:underline">Explore Portfolio →</a>
-                    </div>
-                </div>
-            </div>
+  <!-- Skills -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Technical Skills</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Languages -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-code mr-2 text-indigo-600"></i> Languages</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between mb-1"><span class="font-medium">Python</span><span class="text-gray-600">80%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">JavaScript</span><span class="text-gray-600">90%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">Java</span><span class="text-gray-600">85%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">Go</span><span class="text-gray-600">70%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
+          </div>
         </div>
-    </section>
 
-    <!-- Certificates & Achievements -->
-    <section class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Certificates & Achievements</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Azure Fundamentals -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-certificate text-indigo-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold">Microsoft Certified: Azure Fundamentals</h3>
-                            <p class="text-gray-600">Issued 2022</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">Demonstrated foundational knowledge of cloud services and how they are provided with Microsoft Azure.</p>
-                </div>
-                
-                <!-- Python for Data Science -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <i class="fab fa-python text-indigo-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold">Python for Data Science</h3>
-                            <p class="text-gray-600">Issued 2021</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">Certified in using Python for data analysis, visualization, and machine learning applications.</p>
-                </div>
-                
-                <!-- Best Paper Award -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-award text-indigo-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold">Best Paper Award – IEEE ICICICT-2022</h3>
-                            <p class="text-gray-600">Recognized for research on "Intruder Detection System using IoT with Adaptive Face Monitoring and Motion Sensing Algorithm."</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Rising Star Award -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-star text-indigo-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold">Rising Star Award</h3>
-                            <p class="text-gray-600">Awarded for delivering performance above expectations within the first 6 months of joining.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Web Dev -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-laptop-code mr-2 text-indigo-600"></i> Web Development</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between mb-1"><span class="font-medium">React / Next.js</span><span class="text-gray-600">95%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">Node.js / Express</span><span class="text-gray-600">90%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">FastAPI (Python)</span><span class="text-gray-600">80%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">Git / GitHub</span><span class="text-gray-600">85%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+          </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 gradient-bg text-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
-            
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="bg-white p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-indigo-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Location</h4>
-                                <p>Houston, Texas</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-white p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-indigo-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Email</h4>
-                                <p>aswintharakkunnel@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-white p-3 rounded-full mr-4">
-                                <i class="fas fa-phone text-indigo-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Phone</h4>
-                                <p>+1 (832) 427-8618</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-10">
-                        <h4 class="font-semibold mb-4">Connect with me</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-white p-3 rounded-full text-indigo-600 hover:bg-indigo-100 transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="bg-white p-3 rounded-full text-indigo-600 hover:bg-indigo-100 transition duration-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="bg-white p-3 rounded-full text-indigo-600 hover:bg-indigo-100 transition duration-300">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="bg-white p-3 rounded-full text-indigo-600 hover:bg-indigo-100 transition duration-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block mb-2 font-medium">Your Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 placeholder-white placeholder-opacity-70" placeholder="Enter your name" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block mb-2 font-medium">Your Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 placeholder-white placeholder-opacity-70" placeholder="Enter your email" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="subject" class="block mb-2 font-medium">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 placeholder-white placeholder-opacity-70" placeholder="Enter subject" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block mb-2 font-medium">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 placeholder-white placeholder-opacity-70" placeholder="Enter your message" required></textarea>
-                        </div>
-                        <button type="submit" class="w-full px-6 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">Send Message</button>
-                    </form>
-                </div>
-            </div>
+        <!-- Databases -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-database mr-2 text-indigo-600"></i> Databases</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between mb-1"><span class="font-medium">MongoDB</span><span class="text-gray-600">90%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">MySQL / MSSQL</span><span class="text-gray-600">85%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">PostgreSQL / SQLite</span><span class="text-gray-600">75%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">DynamoDB</span><span class="text-gray-600">80%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-6">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold text-indigo-400">Aswin Jojo</h2>
-                    <p class="mt-2 text-gray-400">Full Stack Software Developer</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2024 Aswin Jojo. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Sitemap</a>
-                </div>
-            </div>
+        <!-- Cloud & DevOps -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-cloud mr-2 text-indigo-600"></i> Cloud & DevOps</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between mb-1"><span class="font-medium">AWS (EC2, Lambda, SQS, Amplify, Cognito, API Gateway)</span><span class="text-gray-600">85%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">Azure (Foundational)</span><span class="text-gray-600">75%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">CI/CD (GitHub Actions, GitLab CI/CD, Jenkins)</span><span class="text-gray-600">80%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span class="font-medium">Testing (Selenium, Pytest)</span><span class="text-gray-600">80%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
+  <!-- Experience -->
+  <section id="experience" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Work Experience</h2>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
-            });
-        });
+      <div class="relative">
+        <!-- University of Houston -->
+        <div class="timeline-item mb-12 pl-8 relative">
+          <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-indigo-600 border-4 border-white shadow-md"></div>
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h3 class="text-xl font-semibold">Research Assistant</h3>
+              <span class="text-indigo-600 font-medium">Aug 2025 - Present</span>
+            </div>
+            <div class="flex items-center mb-4">
+              <div class="bg-indigo-100 p-2 rounded-full mr-4"><i class="fas fa-building text-indigo-600"></i></div>
+              <div><p class="font-medium">University of Houston</p><p class="text-gray-600">Houston, Texas</p></div>
+            </div>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Processed and managed <strong>50,000+ GeoTIFF</strong> files across U.S. cities/zip codes to support geospatial research.</li>
+              <li>Designed and executed <strong>multi-threaded Python pipelines</strong> to automate data collection and preprocessing.</li>
+              <li>Delivered structured datasets for efficient downstream analysis and reproducible research.</li>
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Python</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Data Pipelines</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">GeoTIFF</span>
+            </div>
+          </div>
+        </div>
 
-        // Update active nav link on scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 100) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
+        <!-- Resolve Tech -->
+        <div class="timeline-item mb-12 pl-8 relative">
+          <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-indigo-600 border-4 border-white shadow-md"></div>
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h3 class="text-xl font-semibold">Junior Engineering Intern</h3>
+              <span class="text-indigo-600 font-medium">Jun 2025 - Aug 2025</span>
+            </div>
+            <div class="flex items-center mb-4">
+              <div class="bg-indigo-100 p-2 rounded-full mr-4"><i class="fas fa-building text-indigo-600"></i></div>
+              <div><p class="font-medium">Resolve Tech Solutions</p><p class="text-gray-600">Dallas, Texas</p></div>
+            </div>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Built a full-stack onboarding platform with a <strong>React</strong> UI and <strong>FastAPI</strong> services optimized for low-latency APIs.</li>
+              <li>Designed and deployed an <strong>ML-based ticket classification</strong> system integrated with <strong>ServiceNow</strong> to reduce manual triage.</li>
+              <li>Implemented <strong>CI/CD</strong> pipelines and troubleshooting workflows to ensure stable releases.</li>
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">React</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">FastAPI</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">ServiceNow</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">CI/CD</span>
+            </div>
+          </div>
+        </div>
 
-        // Animate skill bars on scroll
-        const skillBars = document.querySelectorAll('.skill-progress');
-        
-        function animateSkillBars() {
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
+        <!-- Policybazaar - Technical Associate -->
+        <div class="timeline-item mb-12 pl-8 relative">
+          <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-indigo-600 border-4 border-white shadow-md"></div>
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h3 class="text-xl font-semibold">Technical Associate</h3>
+              <span class="text-indigo-600 font-medium">Jul 2023 - Jul 2024</span>
+            </div>
+            <div class="flex items-center mb-4">
+              <div class="bg-indigo-100 p-2 rounded-full mr-4"><i class="fas fa-building text-indigo-600"></i></div>
+              <div><p class="font-medium">Policybazaar.com</p><p class="text-gray-600">Gurugram, India</p></div>
+            </div>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Developed and maintained high-performance web apps using MERN stack.</li>
+              <li>Built a lead management dashboard handling <strong>70M+ records</strong> with advanced search and analytics.</li>
+              <li>Implemented <strong>Redis caching</strong> and <strong>AWS SQS</strong>, reducing load times and enabling high-volume notifications.</li>
+              <li>Contributed in Agile sprints (planning, stand-ups, reviews).</li>
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">React</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Node.js</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MongoDB</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Redis</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">AWS SQS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Policybazaar - Software Engineer Trainee -->
+        <div class="timeline-item mb-12 pl-8 relative">
+          <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-indigo-600 border-4 border-white shadow-md"></div>
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h3 class="text-xl font-semibold">Software Engineer Trainee</h3>
+              <span class="text-indigo-600 font-medium">Oct 2022 - Jun 2023</span>
+            </div>
+            <div class="flex items-center mb-4">
+              <div class="bg-indigo-100 p-2 rounded-full mr-4"><i class="fas fa-building text-indigo-600"></i></div>
+              <div><p class="font-medium">Policybazaar.com</p><p class="text-gray-600">Gurugram, India</p></div>
+            </div>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Developed a Lead Management Dashboard with React, Node.js, Express, and MySQL.</li>
+              <li>Migrated legacy APIs to Node.js; integrated POSP APIs in Java Play Framework.</li>
+              <li>Added real-time Google Analytics (+30% performance) and dynamic logging in MongoDB.</li>
+              <li>Integrated <strong>AWS SQS</strong> for bulk notifications.</li>
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">React</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Node.js</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MySQL</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Java</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </div> <!-- timeline -->
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Featured Projects</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Ride Sharing App -->
+        <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1470&q=80" alt="Ride Sharing App" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Ride Sharing Platform</h3>
+            <p class="text-gray-600 mb-4">Serverless app enabling users to create/join rides with secure auth and approvals.</p>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-2">
+              <li>Auth via Amazon Cognito (JWT)</li>
+              <li>AWS Lambda + API Gateway + DynamoDB</li>
+              <li>Optimized API performance under concurrent load</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">React</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Node.js</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">AWS</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">DynamoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pbpartners Website -->
+        <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1470&q=80" alt="Pbpartners Website" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Pbpartners Website</h3>
+            <p class="text-gray-600 mb-4">Agent portal (POSP) for leads, renewals, claims, and support tickets.</p>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-2">
+              <li>Renewals UI/UX improvements → +20% policy renewals</li>
+              <li>Real-time contest leaderboard for partner engagement</li>
+              <li>Ticketing and claims management modules</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Next.js</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Node.js</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">MySQL</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI WhatsApp ChatBot -->
+        <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=765&q=80" alt="AI ChatBot" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">AI WhatsApp ChatBot</h3>
+            <p class="text-gray-600 mb-4">WhatsApp bot with OpenAI integration and on-prem APIs.</p>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-2">
+              <li>Context-aware responses via webhook flows</li>
+              <li>Automated policy mapping, improved throughput by 50%</li>
+              <li>Node.js + Express + OpenAI APIs</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Node.js</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Express</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">OpenAI</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">WhatsApp API</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Onboarding Task Manager -->
+        <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1470&q=80" alt="Onboarding Task Manager" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Onboarding Task Manager</h3>
+            <p class="text-gray-600 mb-4">Workforce onboarding with role-based workflows and real-time chat.</p>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-2">
+              <li>Next.js + FastAPI + MySQL, deployed on AWS EC2</li>
+              <li>SSO and access via Microsoft Entra (Graph API)</li>
+              <li>Automated pipelines with GitLab CI/CD; WebSockets for chat</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Next.js</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">FastAPI</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">MySQL</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">GitLab CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ticketing Assistant (image fixed to IT/helpdesk theme) -->
+        <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=1470&q=80" alt="Ticketing Assistant" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Ticketing Assistant</h3>
+            <p class="text-gray-600 mb-4">Intelligent ticket classification and routing integrated with ServiceNow.</p>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-2">
+              <li>FastAPI backend, deployed on AWS EC2</li>
+              <li>Logistic Regression model with feedback-driven retraining</li>
+              <li>CI/CD automation and monitoring for reliability</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">FastAPI</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">AWS EC2</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">ServiceNow</span>
+              <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates & Achievements -->
+  <section class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Certificates & Achievements</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+          <div class="flex items-center mb-4"><div class="bg-indigo-100 p-3 rounded-full mr-4"><i class="fas fa-certificate text-indigo-600 text-xl"></i></div><div><h3 class="text-lg font-semibold">Microsoft Certified: Azure Fundamentals</h3><p class="text-gray-600">Issued 2022</p></div></div>
+          <p class="text-gray-600">Foundational knowledge of cloud services and Azure.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+          <div class="flex items-center mb-4"><div class="bg-indigo-100 p-3 rounded-full mr-4"><i class="fab fa-python text-indigo-600 text-xl"></i></div><div><h3 class="text-lg font-semibold">Python for Data Science</h3><p class="text-gray-600">Issued 2021</p></div></div>
+          <p class="text-gray-600">Data analysis, visualization, and ML applications using Python.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+          <div class="flex items-center mb-4"><div class="bg-indigo-100 p-3 rounded-full mr-4"><i class="fas fa-award text-indigo-600 text-xl"></i></div><div><h3 class="text-lg font-semibold">Best Paper Award – IEEE ICICICT-2022</h3><p class="text-gray-600">Intruder Detection System using IoT with Adaptive Face Monitoring and Motion Sensing.</p></div></div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+          <div class="flex items-center mb-4"><div class="bg-indigo-100 p-3 rounded-full mr-4"><i class="fas fa-star text-indigo-600 text-xl"></i></div><div><h3 class="text-lg font-semibold">Rising Star Award</h3><p class="text-gray-600">Recognized for performance above expectations in first 6 months.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6 gradient-bg text-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12"></h2>
+
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/2">
+          <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+          <div class="space-y-6">
+            <div class="flex items-start"><div class="bg-white p-3 rounded-full mr-4"><i class="fas fa-map-marker-alt text-indigo-600"></i></div><div><h4 class="font-semibold">Location</h4><p>Houston, Texas</p></div></div>
+            <div class="flex items-start"><div class="bg-white p-3 rounded-full mr-4"><i class="fas fa-envelope text-indigo-600"></i></div><div><h4 class="font-semibold">Email</h4><p>aswintharakkunnel@gmail.com</p></div></div>
+            <!-- <div class="flex items-start"><div class="bg-white p-3 rounded-full mr-4"><i class="fas fa-phone text-indigo-600"></i></div><div><h4 class="font-semibold">Phone</h4><p>+1 (832) 427-8618</p></div></div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling + active link
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
         }
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkillBars();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {threshold: 0.5});
-        
-        const skillsSection = document.querySelector('#about');
-        if (skillsSection) {
-            observer.observe(skillsSection);
+      });
+    });
+
+    // Update active nav on scroll
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) currentSection = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
+      });
+    });
+
+    // Animate skill bars once visible
+    const skillBars = document.querySelectorAll('.skill-progress');
+    function animateSkillBars() {
+      skillBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => { bar.style.width = width; }, 100);
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSkillBars();
+          observer.unobserve(entry.target);
         }
+      });
+    }, {threshold: 0.5});
+    const skillsSection = document.querySelector('#about');
+    if (skillsSection) observer.observe(skillsSection);
 
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Send email using EmailJS
-            emailjs.send("service_vq64f5k", "template_7o1joiv", {
-                from_name: name,
-                from_email: email,
-                subject: subject,
-                message: message
-            })
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                alert('Message sent successfully!');
-
-                // Reset the form fields
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert('Failed to send message. Please try again later.');
-            });
-        });
-    </script>
+    // ---------- File System Access API helpers ----------
+    let logFileHandle = null;
+</script>
 </body>
 </html>
