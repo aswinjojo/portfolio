@@ -309,6 +309,10 @@
 
   <script src="data/experience.js"></script>
   <script src="data/projects.js"></script>
+  <script>
+    if (typeof EXPERIENCE === 'undefined') { window.EXPERIENCE = []; console.warn('Portfolio: data/experience.js did not load. Check path (e.g. base tag on GitHub Pages).'); }
+    if (typeof PROJECTS === 'undefined') { window.PROJECTS = []; console.warn('Portfolio: data/projects.js did not load. Check path (e.g. base tag on GitHub Pages).'); }
+  </script>
   <script src="main.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
