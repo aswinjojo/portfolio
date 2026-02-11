@@ -17,7 +17,12 @@
   <!-- Navbar -->
   <header class="navbar" role="banner">
     <div class="container">
-      <a href="#home" class="navbar-brand">Aswin Jojo</a>
+      <a href="#home" class="navbar-brand" aria-label="Aswin Jojo – Home">
+        <span class="navbar-brand-flip">
+          <span class="navbar-brand-front">AJ</span>
+          <span class="navbar-brand-back"><img src="img/Profile.png" alt="" width="40" height="40" /></span>
+        </span>
+      </a>
       <nav class="nav-links" aria-label="Main">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
@@ -65,8 +70,8 @@
           </a>
         </div>
       </div>
-      <div class="hero-image-wrap">
-        <img src="img/aswin.png" alt="Aswin Jojo" class="hero-image" width="280" height="280" />
+      <div class="hero-image-wrap avatar" aria-hidden="true">
+        <img src="img/Profile.png" alt="Aswin Jojo" width="320" height="320" />
       </div>
     </div>
   </section>
@@ -92,14 +97,18 @@
           <h4 style="font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.75rem;">Education</h4>
           <ul class="education-list">
             <li>
-              <span class="education-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+              <span class="education-icon education-icon-logo" aria-hidden="true">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/University_of_Houston_full_logo.svg/256px-University_of_Houston_full_logo.svg.png" alt="" width="40" height="40" loading="lazy" />
+              </span>
               <div class="education-item">
                 <h4>Master of Science in Computer Science</h4>
                 <p>University of Houston, Texas (2024–2026) · GPA: 3.8/4</p>
               </div>
             </li>
             <li>
-              <span class="education-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="9" y1="11" x2="15" y2="11"/></svg></span>
+              <span class="education-icon education-icon-logo" aria-hidden="true">
+                <img src="https://cdn.freelogovectors.net/wp-content/uploads/2023/01/vitlogo-freelogovectors.net_.png" alt="" width="40" height="40" loading="lazy" />
+              </span>
               <div class="education-item">
                 <h4>Bachelor of Technology in Computer Science and Engineering</h4>
                 <p>Vellore Institute of Technology, Chennai (2019–2023) · GPA: 9.1/10</p>
@@ -166,93 +175,8 @@
         <h2 id="experience-heading" class="section-title">Work Experience</h2>
         <p class="section-intro">Roles and impact at universities and companies.</p>
       </header>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <span class="timeline-dot" aria-hidden="true"></span>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Research & Instructional Assistant</h3>
-              <span class="timeline-date">Aug 2025 – Present</span>
-            </div>
-            <div class="timeline-company">
-              <span class="timeline-company-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
-              <div><span class="timeline-company-name">University of Houston</span><br><span class="timeline-company-location">Houston, Texas</span></div>
-            </div>
-            <ul>
-              <li>Processed and managed <strong class="metric">50,000+</strong> GeoTIFF files across U.S. cities/zip codes to support geospatial research.</li>
-              <li>Designed and executed <strong>multi-threaded Python pipelines</strong> to automate data collection and preprocessing.</li>
-              <li>Delivered structured datasets for efficient downstream analysis and reproducible research.</li>
-            </ul>
-            <div class="timeline-pills">
-              <span class="pill">Python</span><span class="pill">Data Pipelines</span><span class="pill">GeoTIFF</span>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <span class="timeline-dot" aria-hidden="true"></span>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Junior Engineering Intern</h3>
-              <span class="timeline-date">Jun 2025 – Aug 2025</span>
-            </div>
-            <div class="timeline-company">
-              <span class="timeline-company-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
-              <div><span class="timeline-company-name">Resolve Tech Solutions</span><br><span class="timeline-company-location">Dallas, Texas</span></div>
-            </div>
-            <ul>
-              <li>Built a full-stack onboarding platform with <strong>React</strong> UI and <strong>FastAPI</strong> services optimized for low-latency APIs.</li>
-              <li>Designed and deployed an <strong>ML-based ticket classification</strong> system integrated with <strong>ServiceNow</strong> to reduce manual triage.</li>
-              <li>Implemented <strong>CI/CD</strong> pipelines and troubleshooting workflows to ensure stable releases.</li>
-            </ul>
-            <div class="timeline-pills">
-              <span class="pill">React</span><span class="pill">FastAPI</span><span class="pill">ServiceNow</span><span class="pill">CI/CD</span>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <span class="timeline-dot" aria-hidden="true"></span>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Software Engineer</h3>
-              <span class="timeline-date">Jul 2023 – Jul 2024</span>
-            </div>
-            <div class="timeline-company">
-              <span class="timeline-company-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
-              <div><span class="timeline-company-name">Policybazaar.com</span><br><span class="timeline-company-location">Gurugram, India</span></div>
-            </div>
-            <ul>
-              <li>Developed and maintained high-performance web apps using MERN stack.</li>
-              <li>Built a lead management dashboard handling <strong class="metric">70M+</strong> records with advanced search and analytics.</li>
-              <li>Implemented <strong>Redis caching</strong> and <strong>AWS SQS</strong>, reducing load times and enabling high-volume notifications.</li>
-              <li>Contributed in Agile sprints (planning, stand-ups, reviews).</li>
-            </ul>
-            <div class="timeline-pills">
-              <span class="pill">React</span><span class="pill">Node.js</span><span class="pill">MongoDB</span><span class="pill">Redis</span><span class="pill">AWS SQS</span>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <span class="timeline-dot" aria-hidden="true"></span>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Software Engineer Intern</h3>
-              <span class="timeline-date">Oct 2022 – Jun 2023</span>
-            </div>
-            <div class="timeline-company">
-              <span class="timeline-company-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
-              <div><span class="timeline-company-name">Policybazaar.com</span><br><span class="timeline-company-location">Gurugram, India</span></div>
-            </div>
-            <ul>
-              <li>Developed a Lead Management Dashboard with React, Node.js, Express, and MySQL.</li>
-              <li>Migrated legacy APIs to Node.js; integrated POSP APIs in Java Play Framework.</li>
-              <li>Added real-time Google Analytics (+30% performance) and dynamic logging in MongoDB.</li>
-              <li>Integrated <strong>AWS SQS</strong> for bulk notifications.</li>
-            </ul>
-            <div class="timeline-pills">
-              <span class="pill">React</span><span class="pill">Node.js</span><span class="pill">MySQL</span><span class="pill">Java</span><span class="pill">MongoDB</span>
-            </div>
-          </div>
-        </div>
+      <div class="timeline" id="timeline-container">
+        <!-- Filled by main.js from data/experience.js -->
       </div>
     </div>
   </section>
@@ -262,7 +186,7 @@
     <div class="container">
       <header class="section-head">
         <h2 id="projects-heading" class="section-title">Featured Projects</h2>
-        <p class="section-intro">Personal and professional work—public repos linked where available; internal work marked (NDA).</p>
+        <p class="section-intro">Personal and side projects. Internal/company projects are listed under Work Experience.</p>
       </header>
       <div id="projects-grid" class="projects-grid">
         <!-- Filled by main.js from data/projects.js -->
@@ -278,6 +202,16 @@
         <p class="section-intro">Industry certifications and recognition.</p>
       </header>
       <div class="certificates-grid">
+        <div class="cert-card reveal">
+          <div class="cert-card-header">
+            <span class="cert-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l1 7H6l1-7z"/><path d="M6 11v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6"/><path d="M12 5V3M9 6l2-2M15 6l-2-2"/></svg></span>
+            <div>
+              <h3>Mentor's Choice – Best Technical Solution</h3>
+              <p class="cert-year">UH CFE Hackathon 2025</p>
+            </div>
+          </div>
+          <p>Won $1,200 cash prize at UH Energy Hackathon Fall 2025 for the Data Center Energy Optimization project (real-time power simulation dashboard).</p>
+        </div>
         <div class="cert-card reveal">
           <div class="cert-card-header">
             <span class="cert-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l2 2 4-4"/><path d="M5 6h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg></span>
@@ -336,7 +270,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             aswintharakkunnel@gmail.com
           </a>
-          <a href="https://www.linkedin.com/in/aswin-jojo" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/aswinjojo" class="contact-link" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             LinkedIn
           </a>
@@ -363,6 +297,7 @@
     </div>
   </footer>
 
+  <script src="data/experience.js"></script>
   <script src="data/projects.js"></script>
   <script src="main.js"></script>
   <script>

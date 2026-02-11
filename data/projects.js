@@ -5,13 +5,41 @@
  */
 const PROJECTS = [
   {
+    id: 'data-center-energy-integration-hackathon',
+    title: 'Participiatoion of Data Center in Grid Energy Stability',
+    description: 'Real-time power simulation dashboard for grid import, energy ratio, CO₂ tracking, and grid instability index. Won Mentor\'s Choice for Best Technical Solution — $1,200 cash prize at UH CFE Hackathon (Energy Hackathon Fall 2025).',
+    tech: ['Python', 'Reinforcement Learning', 'Data Pipelines', 'Optimization Problem', 'Machine Learning'],
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1470&q=80',
+    links: {
+      github: 'https://github.com/aswinjojo/data-center-energy-integration-hackathon',
+      live: '',
+      caseStudy: ''
+    },
+    visibility: 'public',
+    internalContext: null
+  },
+  {
     id: 'ride-sharing',
-    title: 'Ride Sharing Platform',
-    description: 'Serverless app enabling users to create/join rides with secure auth and approvals. Auth via Amazon Cognito (JWT), AWS Lambda + API Gateway + DynamoDB, optimized for concurrent load.',
-    tech: ['React', 'Node.js', 'AWS', 'DynamoDB', 'Cognito', 'Lambda'],
+    title: 'Serverless Ride Sharing Platform (AWS)',
+    description: 'Full-stack ride-sharing app built and deployed entirely on AWS. React frontend with AWS Amplify; backend API on Lambda + API Gateway; auth via Cognito (JWT); DynamoDB for persistence. Create/join rides with secure approvals and Google Maps integration.',
+    tech: ['React', 'AWS Amplify', 'Lambda', 'API Gateway', 'Cognito', 'DynamoDB'],
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1470&q=80',
     links: {
-      github: 'REPLACE_WITH_RIDE_SHARING_REPO',
+      github: 'https://github.com/aswinjojo/serverless-ride-sharing-platform-aws',
+      live: '',
+      caseStudy: ''
+    },
+    visibility: 'public',
+    internalContext: null
+  },
+  {
+    id: 'order-eats',
+    title: 'OrderEats',
+    description: 'Online food ordering platform with menu browsing, cart, and checkout. MERN stack with JWT auth, Stripe payments, and a separate admin panel for managing menu items and order status. Role-based access, image uploads, and REST APIs.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe', 'Vite'],
+    image: 'img/order-eats.png',
+    links: {
+      github: 'https://github.com/aswinjojo/OrderEats',
       live: '',
       caseStudy: ''
     },

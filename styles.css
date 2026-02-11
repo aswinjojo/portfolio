@@ -148,11 +148,56 @@ html.dark body::before {
 }
 
 .navbar-brand {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--accent);
+  display: inline-block;
   text-decoration: none;
+  perspective: 120px;
+}
+
+.navbar-brand-flip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: navbarFlip 4s ease-in-out infinite;
+}
+
+@keyframes navbarFlip {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+}
+
+.navbar-brand-front,
+.navbar-brand-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.navbar-brand-front {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
   letter-spacing: -0.02em;
+}
+
+.navbar-brand-back {
+  transform: rotateY(180deg);
+  background: var(--bg-muted);
+}
+
+.navbar-brand-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .nav-links {
@@ -401,20 +446,32 @@ section {
   flex-shrink: 0;
 }
 
-.hero-image {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
+/* Hero circular avatar – tune crop via --avatar-x / --avatar-y (e.g. 50% 50% = center) */
+.avatar {
+  width: clamp(220px, 28vw, 280px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  --avatar-x: 50%;
+  --avatar-y: 50%;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
-  object-position: top;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  box-shadow: var(--shadow-lg);
+  object-position: var(--avatar-x) var(--avatar-y);
+  image-orientation: from-image;
+  transform: scale(1.02);
 }
 
 @media (min-width: 768px) {
-  .hero-image {
-    width: 280px;
-    height: 280px;
+  .avatar {
+    width: clamp(280px, 32vw, 360px);
   }
 }
 
@@ -507,6 +564,17 @@ section {
 .education-icon svg {
   width: 1.25rem;
   height: 1.25rem;
+}
+
+.education-icon-logo {
+  padding: 0.25rem;
+  background: var(--bg);
+}
+
+.education-icon-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .education-item h4 {
@@ -757,6 +825,51 @@ section {
   font-weight: 600;
 }
 
+.timeline-projects {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.timeline-projects-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2);
+}
+
+.timeline-projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-projects-list li {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.timeline-projects-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-projects-list li:last-child {
+  margin-bottom: 0;
+}
+
 .timeline-pills {
   display: flex;
   flex-wrap: wrap;
@@ -840,8 +953,107 @@ html.dark .pill {
   transition: transform 0.4s ease;
 }
 
+.project-card-image img.project-image-order-eats {
+  object-position: bottom;
+}
+
 .project-card:hover .project-card-image img {
   transform: scale(1.03);
+}
+
+/* Project image carousel */
+.project-card-image-carousel {
+  position: relative;
+  height: 200px;
+}
+
+.project-card-image-carousel .project-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.project-card-image-carousel .project-carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.project-card-image-carousel .project-carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-card-image-carousel .project-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card-image-carousel .project-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card-image-carousel .project-carousel-btn:hover {
+  background: var(--accent);
+  color: var(--bg-elevated);
+}
+
+.project-card-image-carousel .project-carousel-prev {
+  left: var(--space-2);
+}
+
+.project-card-image-carousel .project-carousel-next {
+  right: var(--space-2);
+}
+
+.project-card-image-carousel .project-carousel-dots {
+  position: absolute;
+  bottom: var(--space-2);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  z-index: 2;
+}
+
+.project-card-image-carousel .project-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--text-muted);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity var(--transition), background var(--transition);
+}
+
+.project-card-image-carousel .project-carousel-dot:hover,
+.project-card-image-carousel .project-carousel-dot.active {
+  opacity: 1;
+  background: var(--accent);
 }
 
 .project-card-body {
@@ -1160,6 +1372,7 @@ html.dark .pill {
   .contact-link {
     transition: none;
   }
+  .navbar-brand-flip { animation: none; transform: rotateY(0deg); }
 }
 
 /* Focus visible */

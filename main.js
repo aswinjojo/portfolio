@@ -174,6 +174,54 @@
     setInterval(tick, 2800);
   }
 
+  // --- Experience timeline from config (EXPERIENCE must be loaded before main.js) ---
+  var COMPANY_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>';
+
+  function renderExperienceItem(exp) {
+    var bulletsHtml = (exp.bullets || []).map(function (b) {
+      return '<li>' + b + '</li>';
+    }).join('');
+    var pillsHtml = (exp.pills || []).map(function (p) {
+      return '<span class="pill">' + escapeHtml(p) + '</span>';
+    }).join('');
+    var keyProjectsHtml = '';
+    if (exp.keyProjects && exp.keyProjects.length > 0) {
+      var listItems = exp.keyProjects.map(function (kp) {
+        var namePart = kp.url
+          ? '<strong><a href="' + escapeHtml(kp.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(kp.name) + '</a></strong>'
+          : '<strong>' + escapeHtml(kp.name) + '</strong>';
+        return '<li>' + namePart + (kp.description || '') + '</li>';
+      });
+      keyProjectsHtml = '<div class="timeline-projects">' +
+        '<strong class="timeline-projects-label">Key projects</strong>' +
+        '<ul class="timeline-projects-list">' + listItems.join('') + '</ul>' +
+        '</div>';
+    }
+    return '<div class="timeline-item reveal">' +
+      '<span class="timeline-dot" aria-hidden="true"></span>' +
+      '<div class="timeline-card">' +
+        '<div class="timeline-header">' +
+          '<h3 class="timeline-title">' + escapeHtml(exp.title) + '</h3>' +
+          '<span class="timeline-date">' + escapeHtml(exp.date) + '</span>' +
+        '</div>' +
+        '<div class="timeline-company">' +
+          '<span class="timeline-company-icon">' + COMPANY_ICON_SVG + '</span>' +
+          '<div><span class="timeline-company-name">' + escapeHtml(exp.company) + '</span><br><span class="timeline-company-location">' + escapeHtml(exp.location) + '</span></div>' +
+        '</div>' +
+        '<ul>' + bulletsHtml + '</ul>' +
+        keyProjectsHtml +
+        '<div class="timeline-pills">' + pillsHtml + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderExperience() {
+    var container = document.getElementById('timeline-container');
+    if (!container || typeof EXPERIENCE === 'undefined') return;
+    container.innerHTML = EXPERIENCE.map(renderExperienceItem).join('');
+    initReveal();
+  }
+
   // --- Project cards from config (PROJECTS must be loaded before main.js) ---
   function escapeHtml(s) {
     const div = document.createElement('div');
@@ -209,11 +257,35 @@
       ? '<span class="badge-internal">Internal (NDA)</span>'
       : '';
 
+    const imageClass = project.id === 'order-eats' ? ' project-image-order-eats' : '';
+    const hasCarousel = project.images && project.images.length > 1;
+    const carouselId = 'carousel-' + project.id;
+
+    let imageBlock = '';
+    if (hasCarousel) {
+      const slides = project.images.map(function (src, i) {
+        return '<div class="project-carousel-slide' + (i === 0 ? ' active' : '') + '" data-index="' + i + '">' +
+          '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(project.title) + ' — slide ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" />' +
+          '</div>';
+      }).join('');
+      const dots = project.images.map(function (_, i) {
+        return '<button type="button" class="project-carousel-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '" aria-label="Slide ' + (i + 1) + '"></button>';
+      }).join('');
+      imageBlock = '<div class="project-card-image project-card-image-carousel" id="' + escapeHtml(carouselId) + '">' +
+        '<button type="button" class="project-carousel-btn project-carousel-prev" aria-label="Previous slide">‹</button>' +
+        '<button type="button" class="project-carousel-btn project-carousel-next" aria-label="Next slide">›</button>' +
+        '<div class="project-carousel-track">' + slides + '</div>' +
+        '<div class="project-carousel-dots">' + dots + '</div>' +
+        '</div>';
+    } else {
+      imageBlock = '<div class="project-card-image">' +
+        '<img src="' + escapeHtml(project.image || '') + '" alt="' + escapeHtml(project.title) + '" class="' + imageClass + '" loading="lazy" />' +
+        '</div>';
+    }
+
     return (
       '<article class="project-card reveal" id="project-' + escapeHtml(project.id) + '">' +
-        '<div class="project-card-image">' +
-          '<img src="' + escapeHtml(project.image || '') + '" alt="' + escapeHtml(project.title) + '" loading="lazy" />' +
-        '</div>' +
+        imageBlock +
         '<div class="project-card-body">' +
           (badge ? '<div class="project-card-badges">' + badge + '</div>' : '') +
           '<h3>' + escapeHtml(project.title) + '</h3>' +
@@ -225,11 +297,41 @@
     );
   }
 
+  function initCarousels() {
+    document.querySelectorAll('.project-card-image-carousel').forEach(function (wrap) {
+      const track = wrap.querySelector('.project-carousel-track');
+      const slides = wrap.querySelectorAll('.project-carousel-slide');
+      const dots = wrap.querySelectorAll('.project-carousel-dot');
+      const prevBtn = wrap.querySelector('.project-carousel-prev');
+      const nextBtn = wrap.querySelector('.project-carousel-next');
+      var current = 0;
+      var total = slides.length;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        slides.forEach(function (s, i) {
+          s.classList.toggle('active', i === current);
+        });
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+      dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { goTo(i); });
+      });
+    });
+  }
+
   function renderProjects() {
     const container = document.getElementById('projects-grid');
     if (!container || typeof PROJECTS === 'undefined') return;
-    container.innerHTML = PROJECTS.map(renderProjectCard).join('');
+    const publicProjects = PROJECTS.filter(function (p) { return p.visibility !== 'internal'; });
+    container.innerHTML = publicProjects.map(renderProjectCard).join('');
     initReveal();
+    initCarousels();
   }
 
   // --- Run on DOM ready ---
@@ -239,6 +341,7 @@
     initNav();
     initSkillBars();
     initRotateSubtitle();
+    renderExperience();
     renderProjects();
     initReveal();
   }
