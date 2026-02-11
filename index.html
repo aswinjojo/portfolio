@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fix asset paths on GitHub Pages when site is at /portfolio/ -->
+  <script>
+    (function() {
+      if (location.hostname === 'aswinjojo.github.io' && location.pathname.indexOf('/portfolio') === 0) {
+        var base = document.createElement('base');
+        base.href = 'https://aswinjojo.github.io/portfolio/';
+        document.head.insertBefore(base, document.head.firstChild);
+      }
+    })();
+  </script>
   <title>Aswin Jojo | Software Engineer – Full-Stack, Cloud & Data</title>
   <meta name="description" content="Aswin Jojo – Software Engineer specializing in full-stack development, cloud-native systems, and scalable data pipelines. MSCS at University of Houston. Experience at Policybazaar, Resolve Tech, and UH Research." />
   <!-- Open Graph -->
