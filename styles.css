@@ -1206,11 +1206,36 @@ html.dark .pill {
 }
 
 .cert-card {
+  position: relative;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   transition: box-shadow var(--transition);
+}
+
+.cert-card-link {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.cert-card-link:hover {
+  color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.cert-card-link svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 .cert-card:hover {
