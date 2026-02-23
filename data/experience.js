@@ -22,47 +22,41 @@ const EXPERIENCE = [
     title: 'Junior Engineering Intern',
     date: 'Jun 2025 – Aug 2025',
     company: 'Resolve Tech Solutions',
-    location: 'Dallas, Texas',
+    location: 'Dallas, TX',
     bullets: [
-      'Built a cloud-based onboarding platform with <strong>React</strong>, <strong>FastAPI microservices</strong>, and <strong>MySQL</strong> under Agile sprints, conducting code reviews and backlog grooming.',
-      'Designed reusable UI components with <strong>Redux-based state management</strong>, streamlining frontend delivery and simplifying feature releases.',
-      'Implemented an <strong>AI-powered ticket classification assistant</strong> integrated with <strong>ServiceNow</strong>, improving accuracy and cutting response time by <strong class="metric">55%</strong>.',
-      'Owned backend data models, API versioning, and <strong>GitLab CI/CD pipelines</strong> for <strong>AWS EC2</strong> deployments, enabling robust releases.'
+      'Led development of a cloud-based onboarding module used by internal operations teams, designing <strong>React</strong> components and <strong>FastAPI</strong> microservices to standardize user provisioning workflows and reduce manual onboarding dependencies.',
+      'Architected backend data models and versioned <strong>REST APIs</strong> for the onboarding and workflow engine, ensuring backward compatibility and enabling iterative feature releases without service disruption.',
+      'Built an <strong>AI-powered ticket classification</strong> feature integrated with <strong>ServiceNow</strong> to triage support requests; implemented model evaluation and feedback loops, reducing average response time from 3 days to 1 day.',
+      'Established <strong>GitLab CI/CD</strong> pipelines for <strong>AWS EC2</strong> deployments, automating build, test, and release stages to improve deployment consistency and minimize rollback scenarios.'
     ],
-    keyProjects: [
-      { name: 'Onboarding Task Manager', description: ' — Role-based workflows, real-time chat, Next.js + FastAPI on AWS; SSO via Microsoft Entra, GitLab CI/CD.' },
-      { name: 'Ticketing Assistant', description: ' — ML-based ticket classification and routing with ServiceNow; FastAPI on AWS EC2, feedback-driven retraining.' }
-    ],
+    keyProjects: null,
     pills: ['React', 'FastAPI', 'MySQL', 'AWS', 'Microservices', 'Redux', 'CI/CD', 'Machine Learning']
   },
   {
     title: 'Software Engineer',
     date: 'Jul 2023 – Jul 2024',
     company: 'Policybazaar.com',
-    location: 'Gurugram, India',
+    location: 'Gurgaon, India',
     bullets: [
-      'Engineered a <strong>Lead Management Dashboard</strong> managing <strong class="metric">70M+</strong> records in a distributed, cloud-based architecture, improving scalability and data access speed.',
-      'Owned end-to-end delivery of <strong>Claims Management</strong> and <strong>Renewal Portal</strong> systems, reducing claims turnaround by <strong class="metric">15%</strong> via workflow automation.',
-      'Designed and deployed low-latency, fault-tolerant <strong>APIs</strong> integrating <strong>AWS SQS</strong> and <strong>Redis caching</strong>, ensuring reliability and operational excellence.',
-      'Collaborated cross-functionally on system enhancements (leaderboards, dashboards), driving <strong class="metric">40%</strong> higher engagement and revenue visibility.'
+      'Designed and delivered a <strong>Lead Management Dashboard</strong> module within a distributed architecture, optimizing query patterns and indexing strategies to efficiently manage <strong class="metric">70M+</strong> records and improve data retrieval performance.',
+      'Owned the <strong>Claims Management</strong> and <strong>Renewal Portal</strong> workflows, translating business rules into backend services and frontend interfaces, reducing claims turnaround time.',
+      'Engineered fault-tolerant <strong>REST APIs</strong> leveraging <strong>AWS SQS</strong> for asynchronous processing and <strong>Redis</strong> for caching, improving service reliability under peak financial transaction loads.',
+      'Collaborated with product and operations stakeholders to implement analytics dashboards and leaderboard features, enhancing revenue visibility and increasing user engagement by <strong class="metric">40%</strong>.'
     ],
-    keyProjects: [
-      { name: 'Pbpartners', url: 'https://www.pbpartners.com/', description: ' — Agent portal (POSP) for leads, renewals, claims; renewals UI/UX improvements drove +20% policy renewals.' },
-      { name: 'AI WhatsApp ChatBot', description: ' — Context-aware bot with OpenAI and on-prem APIs; automated policy mapping improved throughput by 50%.' }
-    ],
+    keyProjects: null,
     pills: ['Node.js', 'React', 'MySQL', 'MongoDB', 'AWS SQS', 'Redis', 'REST APIs', 'Distributed Systems']
   },
   {
     title: 'Software Engineer Intern',
     date: 'Oct 2022 – Jun 2023',
     company: 'Policybazaar.com',
-    location: 'Gurugram, India',
+    location: 'Gurgaon, India',
     bullets: [
-      'Created an <strong>AI chatbot</strong> using the <strong>WhatsApp Business On-Premises API</strong> for policy queries, renewals, and claims, boosting customer engagement by <strong class="metric">30%</strong>.',
-      'Built end-to-end automated self-service workflows, improving accessibility and reducing manual support overhead.',
-      'Participated in collaborative Agile development, including version control, testing, and code reviews to strengthen SDLC fundamentals.'
+      'Developed a <strong>WhatsApp-based chatbot</strong> using the <strong>WhatsApp Business On-Premises API</strong> to automate policy queries, renewals, and claims status requests, improving customer engagement and reducing manual support dependency.',
+      'Designed automated self-service workflows integrating backend validation and rule engines, reducing dependency on manual support teams for repetitive financial queries.',
+      'Contributed to API integrations, testing, and structured code reviews within Agile sprints, strengthening <strong>SDLC</strong> adherence and improving release stability.'
     ],
     keyProjects: null,
-    pills: ['WhatsApp Business API', 'Python', 'ML', 'Chatbots', 'Automation', 'SDLC']
+    pills: ['Python', 'WhatsApp Business On-Premises API', 'Machine Learning', 'Automation', 'SDLC']
   }
 ];
